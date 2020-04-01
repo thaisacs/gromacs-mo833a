@@ -70,8 +70,18 @@
 
 #include "mdrun_main.h"
 
+#include <sys/time.h>
+
 namespace gmx
 {
+
+double mysecond()
+{
+    struct timeval tp;
+    struct timezone tzp;
+    gettimeofday(&tp,&tzp);
+    return ((double) tp.tv_sec + (double) tp.tv_usec * 1.e-6 );
+}
 
 //! Implements C-style main function for mdrun
 int gmx_mdrun(int argc, char* argv[])
@@ -267,7 +277,13 @@ int gmx_mdrun(int argc, char* argv[])
 
     auto runner = builder.build();
 
-    return runner.mdrunner();
+    auto elapsed = mysecond();
+    auto return_value = runner.mdrunner();
+    elapsed = mysecond() - elapsed;
+
+    printf("[MO833]: runner.mdrunner() exec. time: %f\n", elapsed);
+
+    return return_value;
 }
 
 } // namespace gmx
