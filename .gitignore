@@ -27,3 +27,4 @@ CMakeLists.txt.user
 /VersionInfo*.cmake
 Testing
 experiments/ativ-3-exp-1/experiment-release
+experiments/ativ-3-exp-1/experiment-debug

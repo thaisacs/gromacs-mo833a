@@ -28,7 +28,8 @@ def linear_regression(file_path):
     data_merge = {'Execução': x_axis, 'Tempo de Execução (s)': y_axis}
     data_frame = DataFrame(data=data_merge)
 
-    sns.lmplot(x='Execução', y='Tempo de Execução (s)', data=data_frame);
+    sns.lmplot(x='Execução', y='Tempo de Execução (s)',
+               data=data_frame, ci=95);
     plt.savefig('lr.png')
 
 def histogram(file_path):
@@ -37,17 +38,6 @@ def histogram(file_path):
     sns.distplot(values, hist=True);
     plt.savefig('hist.png')
 
-def calc_measures(file_path):
-    values = np.genfromtxt(file_path, delimiter='\n')
-
-    average = values.mean()
-    std = values.std()
-    median = np.median(values)
-
-    print('average: {}'.format(average))
-    print('median: {}'.format(median))
-    print('std: {}'.format(std))
-
 def main():
     file_path, op = cmd_line()
 
@@ -55,7 +45,5 @@ def main():
         linear_regression(file_path)
     elif(op == 2):
         histogram(file_path)
-    elif(op == 3):
-        calc_measures(file_path)
 
 main()
