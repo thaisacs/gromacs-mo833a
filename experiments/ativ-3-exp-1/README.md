@@ -10,8 +10,6 @@ Esta feature adiciona os seguintes itens:
 
 a seguir é detalhado cada script desenvolvido.
 
-[TOC]
-
 ### Experimentos
 
 Para realizar os experimentos foi desenvolvido 4 scripts: **script-build.sh**, **script-config.sh**, **script-exp.sh** e **script-analyze.py**.
