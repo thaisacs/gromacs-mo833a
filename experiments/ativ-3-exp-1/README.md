@@ -8,7 +8,7 @@ Esta feature adiciona os seguintes itens:
 - Adiciona o *script-exp.sh* que realiza a execução do experimento;
 - Adiciona o *script-analyze.py* que realiza a geração dos gráficos;
 
-Deve-se tomar cuidado com a variavel **DIR** do *script-build.sh* pois ela deve conter o caminho para o *gromacs*.
+Deve-se tomar cuidado com a variável **DIR** do *script-build.sh* pois ela deve conter o caminho para o *gromacs*.
 A seguir é detalhado cada script desenvolvido.
 
 ### Experimentos
