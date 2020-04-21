@@ -1,7 +1,7 @@
 #!/bin/bash
 #Author : Thais Camacho
 
-BIN='../../../build/release/bin/gmx'
+BIN='../../../build/bin/gmx'
 
 check_param $#
 

@@ -22,15 +22,11 @@ mkdir -p build
 cd build
 
 if [[ "$PARAM" == "Release" ]]; then
-  mkdir release
-  cd release
   echo "-- release mode"
-  cmake ../.. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=Release
+  cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=Release
 elif [[ "$PARAM" == "Debug" ]]; then
-  mkdir debug
-  cd debug
   echo "-- debug mode"
-  cmake ../.. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=Debug
+  cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=Debug
 else
   exit 0
 fi
