@@ -27,7 +27,7 @@ Implementado em *bash script*, esse *script* realiza a configuração necessári
 
 #### script-exp.sh
 
-Implementado em *bash script*, esse *script* realiza o experimento executando o *gromacs* compilado na pasta *build* na raiz do repositório.
+Implementado em *bash script*, esse *script* realiza o experimento executando o *gromacs* compilado na pasta *build/release* na raiz do repositório.
 Esse *script* depende da execução do **script-config.sh**. Ele realiza 3 execuções da aplicação (uma sem ferramenta, outra com o perf e outra com o valgrind), 
 gerando três arquivos com o tempo de execução: *output.txt*, *output-perf.txt* e *output-valgrind.txt*. Para executar esse *script* basta executar:
 
