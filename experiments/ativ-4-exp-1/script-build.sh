@@ -1,8 +1,6 @@
 #!/bin/bash
 #Author : Thais Camacho
 
-set OMP_NUM_THREADS=1
-
 DIR=~/Dev/gromacs-mo833a
 
 check_params() {
@@ -15,7 +13,6 @@ check_params() {
 check_params $#
 
 PARAM=$1
-echo $PARAM
 
 cd $DIR
 mkdir -p build
@@ -27,6 +24,9 @@ if [[ "$PARAM" == "Release" ]]; then
 elif [[ "$PARAM" == "Debug" ]]; then
   echo "-- debug mode"
   cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=Debug
+elif [[ "$PARAM" == "No-Parallel" ]]; then
+  echo "-- no-openmp mode"
+  cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=Release -DGMX_THREAD_MPI=OFF -DGMX_MPI=OFF -DGMX_OPENMP=OFF -DGMX_GPU=OFF
 else
   exit 0
 fi

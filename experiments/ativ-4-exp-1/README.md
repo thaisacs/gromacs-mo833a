@@ -21,6 +21,12 @@ Já para a compilação no modo *Release*, basta executar:
 ./script-build.sh Release
 ```
 
+Para compilar no modo *Release* sem paralelismo:
+
+```
+./script-build.sh No-Parallel
+```
+
 #### script-config.sh
 
 Implementado em *bash script*, esse *script* realiza a configuração necessário para realizar a simulação para encontrar o ponto de energia mínima da estrutura de cristal de uma cadeia de repetição HR2 do novo 2019-nCoV (Corona Virus) solvido em água e íons. Esse *script* necessita dos arquivos *6LVN.pdb* e  *ions.mdp* na pasta *config*. Não é necessário nenhum parâmetro extra e ele é responsável pela geração da pasta *experiments*, com as configurações do experimento.
@@ -36,7 +42,11 @@ gerando três arquivos com o tempo de execução: *output.txt*, *output-perf.txt
 ```
 
 Os arquivos de saída são armazenados na pasta *experiments* criada pelo *script* anterior.
+Caso a versão compilada seja sem OPEN-MP, basta executar:
 
+```
+./script-exp.sh no-openmp
+```
 ### Exemplo
 
 Um exemplo de experimento seria a execução dos seguintes comandos:

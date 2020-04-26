@@ -1,7 +1,7 @@
 #!/bin/bash
 #Author : Thais Camacho
 
-BIN='../../../build/release/bin/gmx'
+BIN='../../../build/bin/gmx'
 SLVN='../config/6LVN.pdb'
 IONS='../config/ions.mdp'
 
