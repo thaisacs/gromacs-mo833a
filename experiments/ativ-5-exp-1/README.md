@@ -30,6 +30,32 @@ libhdf5-openmpi-dev gfortran build-essential git cmake
  6. Clicar em **Review and Launch**;
  7. Clicar em **Launch**, então criar uma nova *key group* e realizar o *download* dela. Após isso, clicar em **Launch Instances**.
 
+#### Configurando a chave RSA
+
+Antes de gerar a imagem é necessário configurar a chave RSA para permitir o acesso  por SSH livre entre as máquinas. Para isso, basta executar
+```
+ssh-keygen
+```
+Não precisa alterar nenhuma configuração, basta executar *enter* em todas as etapas desse comando. Após isso, é necessário executar o seguinte comando:
+
+```
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```
+
+#### Configurando o GROMACS
+
+Para configurar o GROMACS basta executar os seguintes comandos:
+```
+git clone https://github.com/thaisacs/gromacs-mo833a.git
+git checkout ativ-5-exp-1
+cd experiments/ativ-5-exp-1
+chmod +x script-build.sh
+./script-build.sh
+chmod +x script-config.sh
+./script-config.sh
+chmod +x script-exec.sh
+```
+
 #### Criando a imagem base
 
 
