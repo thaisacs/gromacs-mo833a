@@ -16,14 +16,15 @@ A primeira coisa a se fazer é realizar a configuração de uma máquina. Para i
  1. Selecionar a Amazon Machine Image (AMI) **Ubuntu Server 18.04 LTS (HVM), SSD Volume Type**;
  2. Selecionar o tipo da instância **t2.micro** e clicar em **Next: Configure Instance Details**;
  3. No campo *Advanced Details*, seleciona *as Text* e dentro de *user data* coloque *script* apresentado a seguir. Após isso, selecionar **Next: Add Storage**;
- 
-```#!/bin/bash```
-```sudo apt-get update```
-```sudo apt-get install -y wget make gcc libgfortran3 \```
-```sysstat libibnetdisc-dev openmpi-bin libopenmpi-dev \```
-```libhdf5-openmpi-dev gfortran build-essential git cmake```
 
- 
+```
+#!/bin/bash
+sudo apt-get update
+sudo apt-get install -y wget make gcc libgfortran3 \
+sysstat libibnetdisc-dev openmpi-bin libopenmpi-dev \
+libhdf5-openmpi-dev gfortran build-essential git cmake
+```
+
  4. Clicar em **Next: Add Tags**;
  5. Clicar em **Next: Configure Security Group**;
  6. Clicar em **Review and Launch**;
