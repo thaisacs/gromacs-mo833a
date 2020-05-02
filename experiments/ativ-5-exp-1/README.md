@@ -19,14 +19,15 @@ A primeira coisa a se fazer é realizar a configuração de uma máquina. Para i
  1. Selecionar a Amazon Machine Image (AMI) **Ubuntu Server 18.04 LTS (HVM), SSD Volume Type**;
  2. Selecionar o tipo da instância **t2.micro** e clicar em **Next: Configure Instance Details**;
  3. No campo *Advanced Details*, seleciona *as Text* e dentro de *user data* coloque *script* apresentado a seguir. Após isso, selecionar **Next: Add Storage**;
- 
-```#!/bin/bash```
-```sudo apt-get update```
-```sudo apt-get install -y wget make gcc libgfortran3 \```
-```sysstat libibnetdisc-dev openmpi-bin libopenmpi-dev \```
-```libhdf5-openmpi-dev gfortran build-essential git cmake```
 
- 
+```
+#!/bin/bash
+sudo apt-get update
+sudo apt-get install -y wget make gcc libgfortran3 \
+sysstat libibnetdisc-dev openmpi-bin libopenmpi-dev \
+libhdf5-openmpi-dev gfortran build-essential git cmake
+```
+
  4. Clicar em **Next: Add Tags**;
  5. Clicar em **Next: Configure Security Group**;
  6. Clicar em **Review and Launch**;
@@ -38,28 +39,30 @@ Antes de gerar a imagem é necessário configurar a chave RSA para permitir o ac
 ```
 ssh -i "<key-part-path>" ubuntu@<public-dns>
 ```
+
 Após isso, basta executar
+
 ```
 ssh-keygen
 ```
+
 Não precisa alterar nenhuma configuração, basta executar *enter* em todas as etapas desse comando. Após isso, é necessário executar o seguinte comando
 
 ```
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
+
 #### Configurando o GROMACS
 
 Para configurar o GROMACS basta, dentro da VM, executar os seguintes comandos
+
 ```
 git clone https://github.com/thaisacs/gromacs-mo833a.git
 cd gromacs-mo833a
 git checkout ativ-5-exp-1
 cd experiments/ativ-5-exp-1
-chmod +x script-build.sh
 ./script-build.sh
-chmod +x script-config.sh
 ./script-config.sh
-chmod +x script-exec.sh
 ```
 
 Dentro do diretório *experiments* > *exp-5-ativ-1* configure o arquivo *hostfile* executando os seguintes comandos
@@ -68,6 +71,7 @@ Dentro do diretório *experiments* > *exp-5-ativ-1* configure o arquivo *hostfil
 echo "<IP1> slots=2" > hostfile
 echo "<IP2> slots=2" >> hostfile
 ```
+
 substituindo **IP1** e **IP2** pelos IPs das duas VMs criadas.
 
 #### Criando a imagem base
@@ -97,4 +101,5 @@ Após as duas VMs configuradas e executando, acesse uma das VMs e entre no diret
 ```
 ./script-exec.sh
 ```
+
 Depois que terminar o experimento, é só parar e terminar as três VMs.
