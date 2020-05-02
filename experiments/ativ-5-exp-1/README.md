@@ -1,4 +1,3 @@
-
 ## Atividade 5 - Experimento 1
 
 Esta atividade visa realizar a execução do gromacs com MPI na nuvem. Para isso, é necessário a realização das seguintes etapas:
@@ -65,22 +64,13 @@ cd experiments/ativ-5-exp-1
 ./script-config.sh
 ```
 
-Dentro do diretório *experiments* > *exp-5-ativ-1* configure o arquivo *hostfile* executando os seguintes comandos
-
-```
-echo "<IP1> slots=2" > hostfile
-echo "<IP2> slots=2" >> hostfile
-```
-
-substituindo **IP1** e **IP2** pelos IPs das duas VMs criadas.
-
 #### Criando a imagem base
 
 Depois de tudo configurado, é necessário ir até o *dashboard* da AWS, selecionar a instância gerada e então ir até *Actions* > *Image*  > *Create image*. Na janela de criação, preencha o campo *Image name* com o nome da imagem desejado e o campo *Image Description* com uma pequena descrição de AMI.
 
 #### Configurando a rede de interconexão
 
-No *dashboard* EC2, encontre a opção de *Security Groups* e selecione *Create Security Group*.
+No *dashboard* EC2, encontre a opção de *Security Groups* e selecione *Create Security Group*. Preencher o campo *Security group name*  e o campo *Description*. Após isso, clique no botão *Create security group*. Na tela que apareceu, clique em *Edit inbound rules*. Adicione novas duas regras, como na figura a seguir e clique em *Save rules*.
 
 #### Selecionando e configurando múltiplas instâncias
 
@@ -88,7 +78,7 @@ Utilizando a imagem base é necessário criar duas VMs para de fato executar o G
 
  1. Clique em *My AMI* e selecione a imagem criada anteriormente;
  2. Selecionar o tipo da instância **t2.micro** e clicar em **Next: Configure Instance Details**;
- 3. No campo *Add instance to placement group*, seleciona *Add to a new placement group* e dê um nome para o novo *placement group*. Após isso, selecione **Next: Add Storage**;
+ 3. Altere o campo *Number of instances* para 2. No campo *Add instance to placement group*, seleciona *Add to a new placement group* e dê um nome para o novo *placement group*. Após isso, selecione **Next: Add Storage**;
  4. Clique em **Next: Add Tags**;
  5. Clique em **Next: Configure Security Group**;
  6. No campo *Assign a security group*, altere para *Select an **existing** security group* e selecione o *security group* criado anteriormente. Clique em **Review and Launch**;
@@ -96,7 +86,14 @@ Utilizando a imagem base é necessário criar duas VMs para de fato executar o G
 
 #### Executando o GROMACS
 
-Após as duas VMs configuradas e executando, acesse uma das VMs e entre no diretório *experiments* > *exp-5-ativ-1*. Após isso execute o comando
+Após as duas VMs configuradas e executando, acesse uma das VMs e entre no diretório *experiments* > *exp-5-ativ-1*.  Dentro do diretório *experiments* > *exp-5-ativ-1* configure o arquivo *hostfile* executando os seguintes comandos
+
+```
+echo "<IP1> slots=2" > hostfile
+echo "<IP2> slots=2" >> hostfile
+```
+
+substituindo **IP1** e **IP2** pelos IPs das duas VMs criadas. Após isso execute o comando
 
 ```
 ./script-exec.sh
