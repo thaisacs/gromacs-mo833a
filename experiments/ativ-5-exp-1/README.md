@@ -35,18 +35,23 @@ Antes de gerar a imagem é necessário configurar a chave RSA para permitir o ac
 ```
 ssh -i "<key-part-path>" ubuntu@<public-dns>
 ```
+
 Após isso, basta executar
+
 ```
 ssh-keygen
 ```
+
 Não precisa alterar nenhuma configuração, basta executar *enter* em todas as etapas desse comando. Após isso, é necessário executar o seguinte comando
 
 ```
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
+
 #### Configurando o GROMACS
 
 Para configurar o GROMACS basta, dentro da VM, executar os seguintes comandos
+
 ```
 git clone https://github.com/thaisacs/gromacs-mo833a.git
 git checkout ativ-5-exp-1
@@ -64,6 +69,7 @@ Dentro do diretório *experiments* > *exp-5-ativ-1* configure o arquivo *hostfil
 echo "<IP1> slots=2" > hostfile
 echo "<IP2> slots=2" >> hostfile
 ```
+
 substituindo **IP1** e **IP2** pelos IPs das duas VMs criadas.
 
 #### Criando a imagem base
@@ -89,4 +95,5 @@ Após as duas VMs configuradas e executando, acesse uma das VMs e entre no diret
 ```
 ./script-exec.sh
 ```
+
 Depois que terminar o experimento, é só parar e terminar as três VMs.
