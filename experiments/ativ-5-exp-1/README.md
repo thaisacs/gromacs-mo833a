@@ -72,6 +72,8 @@ Depois de tudo configurado, é necessário ir até o *dashboard* da AWS, selecio
 
 No *dashboard* EC2, encontre a opção de *Security Groups* e selecione *Create Security Group*. Preencher o campo *Security group name*  e o campo *Description*. Após isso, clique no botão *Create security group*. Na tela que apareceu, clique em *Edit inbound rules*. Adicione novas duas regras, como na figura a seguir e clique em *Save rules*.
 
+![](https://raw.githubusercontent.com/thaisacs/gromacs-mo833a/ativ-5-exp-1/experiments/ativ-5-exp-1/imgs/network.png)
+
 #### Selecionando e configurando múltiplas instâncias
 
 Utilizando a imagem base é necessário criar duas VMs para de fato executar o GROMACS. Para isso basta acessar o EC2 dashboard da AWS e clique na opção **launch instance**. Em cada passo da configuração, siga as seguintes recomendações:
