@@ -103,9 +103,11 @@ substituindo **IP1** e **IP2** pelos IPs das duas VMs criadas. Após isso execut
 
 Depois que terminar o experimento, é só parar e terminar as três VMs.
 
+## Resultados
+
 A seguir é apresentado o *wall time clock* encontrado para cada execução.
 
-## Resultados
+
 | Nodes | Tempo(s) |
 |-------|----------|
 |  1    |  368.81  |
