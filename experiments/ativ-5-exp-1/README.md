@@ -102,3 +102,9 @@ substituindo **IP1** e **IP2** pelos IPs das duas VMs criadas. Após isso execut
 ```
 
 Depois que terminar o experimento, é só parar e terminar as três VMs.
+
+## Resultados
+| Nodes | Tempo |
+|----|----|
+| A2 | B2 |
+| A3 | B3 |
