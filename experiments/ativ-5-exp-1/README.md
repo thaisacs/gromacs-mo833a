@@ -109,7 +109,7 @@ A seguir é apresentado o *wall time clock* encontrado para cada execução.
 | Nodes | Tempo(s) |
 |-------|----------|
 |  1    |  368.81  |
-| 2 | B3 |
-| 4 | B3 |
+|  2    | 1479.92s |
+|  4    | 896.13s  |
 
 
