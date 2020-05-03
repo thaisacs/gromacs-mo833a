@@ -88,7 +88,7 @@ Utilizando a imagem base é necessário criar duas VMs para de fato executar o G
 
 #### Executando o GROMACS
 
-Após as duas VMs configuradas e executando, acesse uma das VMs e entre no diretório *experiments* > *exp-5-ativ-1*.  Dentro do diretório *experiments* > *exp-5-ativ-1* configure o arquivo *hostfile* executando os seguintes comandos
+Após as duas VMs configuradas e executando, acesse uma das VMs e entre no diretório *experiments* > *exp-5-ativ-1*.  Dentro desse diretório configure o arquivo *hostfile* executando os seguintes comandos
 
 ```
 echo "<IP1> slots=2" > hostfile
