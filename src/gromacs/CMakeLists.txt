@@ -33,6 +33,7 @@
 # the research papers on the package. Check out http://www.gromacs.org.
 
 set(LIBGROMACS_SOURCES)
+install(EXPORT kernelstats-targets DESTINATION lib)
 
 if (GMX_CLANG_CUDA)
     include(gmxClangCudaUtils)
