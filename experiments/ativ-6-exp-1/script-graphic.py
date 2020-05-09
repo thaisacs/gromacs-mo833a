@@ -12,8 +12,11 @@ with open('experiment/output.csv', 'r') as file:
         app_time.append(float(row[2]))
         paramount_iteration.append(float(row[3]))
 
-matplotlib.pyplot.plot(x, paramount_iteration)
 print(app_time[len(app_time)-1])
 print(sum(paramount_iteration))
+
+matplotlib.pyplot.plot(x, paramount_iteration)
+matplotlib.pyplot.xlabel('Iteração')
+matplotlib.pyplot.ylabel('Tempo da Paramount Iteration (s)')
 
 matplotlib.pyplot.show()
