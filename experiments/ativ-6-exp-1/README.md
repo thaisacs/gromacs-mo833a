@@ -17,7 +17,7 @@ Para execumentar o experimento basta executar os *scripts* na seguinte ordem:
 
 ### Resultados
 
-![]()
+![](https://raw.githubusercontent.com/thaisacs/gromacs-mo833a/ativ-6-exp-1/experiments/ativ-6-exp-1/imgs/paramount_iteration.png)
 
 Tempo gasto da inicialização até o primeiro *loop*: 0.0897281 segundos.
 Tempo gasto da inicialização até o fim do último *loop*: 164.239 segundos.
