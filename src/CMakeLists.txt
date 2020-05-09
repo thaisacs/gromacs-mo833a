@@ -123,6 +123,8 @@ if (BUILD_TESTING)
     add_subdirectory(testutils)
 endif()
 
+include_directories(kernelstats)
+add_subdirectory(kernelstats)
 add_subdirectory(gromacs)
 add_subdirectory(programs)
 

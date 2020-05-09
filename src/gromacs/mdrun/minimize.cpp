@@ -106,8 +106,10 @@
 
 #include "legacysimulator.h"
 #include "shellfc.h"
+#include "kernel_stats.h"
 
 using gmx::MdrunScheduleWorkload;
+
 
 //! Utility structure for manipulating states during EM
 typedef struct
@@ -2363,6 +2365,7 @@ void LegacySimulator::do_steep()
     int               steps_accepted = 0;
     auto              mdatoms        = mdAtoms->mdatoms();
 
+
     GMX_LOG(mdlog.info)
             .asParagraph()
             .appendText(
@@ -2422,8 +2425,11 @@ void LegacySimulator::do_steep()
     count  = 0;
     bDone  = FALSE;
     bAbort = FALSE;
+
+
     while (!bDone && !bAbort)
     {
+        KS->begin_timestep();
         bAbort = (nsteps >= 0) && (count == nsteps);
 
         /* set new coordinates, except for first step */
@@ -2555,6 +2561,8 @@ void LegacySimulator::do_steep()
         }
 
         count++;
+
+        KS->end_timestep();
     } /* End of the loop  */
 
     /* Print some data...  */

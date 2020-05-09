@@ -46,9 +46,11 @@
 #include "gromacs/utility/exceptions.h"
 
 #include "legacymodules.h"
+#include "kernel_stats.h"
 
 int main(int argc, char* argv[])
 {
+    KS->init_timestep();
     gmx::CommandLineProgramContext& context = gmx::initForCommandLine(&argc, &argv);
     try
     {

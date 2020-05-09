@@ -302,6 +302,7 @@ set_target_properties(libgromacs PROPERTIES
 
 gmx_manage_lmfit()
 target_link_libraries(libgromacs PRIVATE lmfit)
+target_link_libraries(libgromacs PRIVATE kernelstats)
 
 # Fix everything found by the latest version of clang that we use in
 # Jenkins testing. This should be updated when we update the latest
