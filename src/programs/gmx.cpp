@@ -50,7 +50,7 @@
 
 int main(int argc, char* argv[])
 {
-    KS->init_timestep();
+    KS.init_timestep();
     gmx::CommandLineProgramContext& context = gmx::initForCommandLine(&argc, &argv);
     try
     {

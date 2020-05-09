@@ -2429,7 +2429,7 @@ void LegacySimulator::do_steep()
 
     while (!bDone && !bAbort)
     {
-        KS->begin_timestep();
+        KS.begin_timestep();
         bAbort = (nsteps >= 0) && (count == nsteps);
 
         /* set new coordinates, except for first step */
@@ -2562,7 +2562,7 @@ void LegacySimulator::do_steep()
 
         count++;
 
-        KS->end_timestep();
+        KS.end_timestep();
     } /* End of the loop  */
 
     /* Print some data...  */

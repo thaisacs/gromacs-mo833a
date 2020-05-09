@@ -1,5 +1,4 @@
 #include <sys/time.h>
-#include <memory>
 
 namespace gmx {
   class KernelStats {
@@ -15,4 +14,4 @@ namespace gmx {
   };
 }
 
-std::unique_ptr<gmx::KernelStats> KS = std::make_unique<gmx::KernelStats>();
+gmx::KernelStats KS;
