@@ -16,11 +16,15 @@ void KernelStats::init_timestep() {
 
 void KernelStats::end_timestep() {
   double end_time = get_time();
-  std::cout << iteration << " " << end_time - init_time << " "
+  std::cout << "Iteration," << iteration << "," << end_time - init_time << ","
     << end_time - begin_time << std::endl;
 }
 
 void KernelStats::begin_timestep() {
+  if(iteration == 0) {
+    double current_time = get_time();
+    std::cout << "Init time," << current_time - init_time << std::endl;
+  }
   iteration++;
   begin_time = get_time();
 }

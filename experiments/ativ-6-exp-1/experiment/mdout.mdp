@@ -2,10 +2,10 @@
 ;	File 'mdout.mdp' was generated
 ;	By user: thais (1000)
 ;	On host: debian
-;	At date: Sat May  9 01:41:24 2020
+;	At date: Sat May  9 03:51:30 2020
 ;
 ;	Created by:
-;	  :-) GROMACS - gmx grompp, 2020.2-dev-20200324-1cc775f5f-dirty-unknown (-:
+;	  :-) GROMACS - gmx grompp, 2020.2-dev-20200509-8a2128202-dirty-unknown (-:
 ;	
 ;	Executable:   /home/thais/Dev/again3/gromacs-mo833a/experiments/ativ-6-exp-1/experiment/../../../build/bin/gmx
 ;	Data prefix:  /home/thais/Dev/again3/gromacs-mo833a (source tree)

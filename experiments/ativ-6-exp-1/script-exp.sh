@@ -1,4 +1,4 @@
 BIN='../../../build/bin/gmx'
 
 cd experiment
-/usr/bin/time $BIN mdrun -v -deffnm em >> output.csv
+$BIN mdrun -v -deffnm em >> output.txt
