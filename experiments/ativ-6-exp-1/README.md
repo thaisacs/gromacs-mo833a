@@ -3,6 +3,7 @@
 Esta atividade visa instrumentar o código para imprimir o tempo de inicialização (tempo do início da função main até o início 
 da primeira paramount iteration) e o tempo de cada *paramount iteration*.
 Acredito que a *paramount iteration* seja o *loop* dentro da *do_steep* no arquivo *src/gromacs/mdrun/minimize.cpp*.
+Na do_steep é onde a comunicação MPI acontece e ela fica no arquivo *src/gromacs/mdlib/sim_util.cpp*.
 
 ### KernelStats
 
