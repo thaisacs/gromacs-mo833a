@@ -1,7 +1,7 @@
 ## Atividade 6- Experimento 1
 
 Esta atividade visa instrumentar o código para imprimir o tempo de inicialização (tempo do início da função main até o início da primeira paramount iteration) e o tempo de cada *paramount iteration*.
-Acredito que a *paramount iteration* seja o *loop* dentro da *doo_steep* no arquivo *src/gromacs/mdrun/minimize.cpp*.
+Acredito que a *paramount iteration* seja o *loop* dentro da *do_steep* no arquivo *src/gromacs/mdrun/minimize.cpp*.
 
 ### KernelStats
 
@@ -22,5 +22,7 @@ Para execumentar o experimento basta executar os *scripts* na seguinte ordem:
 </p>
 
 Tempo gasto da inicialização até o primeiro *loop*: 0.0897281 segundos.
+
 Tempo gasto da inicialização até o fim do último *loop*: 164.239 segundos.
+
 Tempo gasto na *paramount iteration*: 164.11 segundos.
