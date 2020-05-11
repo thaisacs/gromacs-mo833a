@@ -21,7 +21,7 @@ Para execumentar o experimento basta executar os *scripts* na seguinte ordem:
 
 1. **script-build.sh**: Compila o *gromacs* no modo *release*;
 2. **script-config**: Após a compilação, configura o ambiente para executar o experimento. Configuração é realizada na pasta *experiment*;
-3. **script-exec**: Executa o experimento gerando o arquivo de resultados output.csv na pasta *experiment*;
+3. **script-exec**: Executa o experimento gerando o arquivo de resultados output.txt na pasta *experiment*;
 
 ### Resultados
 
