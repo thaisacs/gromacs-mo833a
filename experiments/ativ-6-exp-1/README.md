@@ -11,8 +11,8 @@ A classe **KernelStats** foi adicionada no diretório *usr/kernelstats*. Essa cl
 *begin_timestep* e *end_timestep*. O método *init_timestep* deve ser chamado pela *main*, pois é responsável por coletar o tempo de 
 inicialização da *main* e armazenar no atributo *init_time*. Após isso, ela envia para a saída *std::cout* o tempo coletado. 
 Já o método *begin_timestep* deve ser chamado para começar a medir o tempo da *paramount iteration*. Dessa forma, esse método coleta o 
-tempo atual e atribui no atributo *begin_timestep*. Já o método *end_timestep* é responsável por coletar o tempo atual e subtrair desse 
-tempo o *begin_timestep*, ou seja, deve ser executado no final da *paramount iteration*. Além disso, ele envia para a saída *std::cout* 
+tempo atual e atribui no atributo *begin_time*. Já o método *end_timestep* é responsável por coletar o tempo atual e subtrair desse 
+tempo o *begin_time*, ou seja, deve ser executado no final da *paramount iteration*. Além disso, ele envia para a saída *std::cout* 
 o tempo calculado. Essa classe também possui o método privado *get_time* que é responsável por coletar o tempo atual da execução da aplicação.
 
 ### Scripts
