@@ -2,12 +2,12 @@
 ;	File 'topol_Protein_chain_B.itp' was generated
 ;	By user: thais (1000)
 ;	On host: debian
-;	At date: Sat May  9 04:55:58 2020
+;	At date: Sun May 10 22:31:05 2020
 ;
 ;	This is a include topology file
 ;
 ;	Created by:
-;	  :-) GROMACS - gmx pdb2gmx, 2020.2-dev-20200509-a56e3adb5-dirty-unknown (-:
+;	     :-) GROMACS - gmx pdb2gmx, 2020.2-dev-20200509-6bcbffd1c-unknown (-:
 ;	
 ;	Executable:   /home/thais/Dev/again3/gromacs-mo833a/experiments/ativ-6-exp-1/experiment/../../../build/bin/gmx
 ;	Data prefix:  /home/thais/Dev/again3/gromacs-mo833a (source tree)

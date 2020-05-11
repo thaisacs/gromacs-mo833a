@@ -31,9 +31,9 @@ Para execumentar o experimento basta executar os *scripts* na seguinte ordem:
   <img width="460" height="300" src="https://raw.githubusercontent.com/thaisacs/gromacs-mo833a/ativ-6-exp-1/experiments/ativ-6-exp-1/imgs/paramount_iteration.png">
 </p>
 
-- Tempo gasto da inicialização até o primeiro *loop*: 0.0897281 segundos;
-- Tempo gasto da inicialização até o fim do último *loop*: 164.239 segundos; e
-- Tempo gasto na *paramount iteration*: 164.11 segundos.
+- Tempo gasto da inicialização até o primeiro *loop*: 0.0939512 segundos;
+- Tempo gasto nas *"paramount iteration"*: 114.06 segundos.
+- Tempo total: 114.27 segundos.
 
 ##### 4 threads OPENMP:
 
@@ -42,8 +42,7 @@ Para execumentar o experimento basta executar os *scripts* na seguinte ordem:
 </p>
 
 - Tempo gasto da inicialização até o primeiro *loop*: 0.544975 segundos;
-- Tempo gasto da inicialização até o fim do último *loop*: 50.9734 segundos;
-- Tempo gasto na *paramount iteration*: 50.39295009 segundos; e
+- Tempo gasto nas *"paramount iteration"*: 50.39295009 segundos; e
 - Tempo total: 51.07 segundos.
 
 
