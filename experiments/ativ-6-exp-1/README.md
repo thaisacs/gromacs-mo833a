@@ -20,8 +20,8 @@ o tempo calculado. Essa classe também possui o método privado *get_time* que �
 Para execumentar o experimento basta executar os *scripts* na seguinte ordem:
 
 1. **script-build.sh**: Compila o *gromacs* no modo *release*;
-2. **script-config**: Após a compilação, configura o ambiente para executar o experimento. Configuração é realizada na pasta *experiment*;
-3. **script-exec**: Executa o experimento gerando o arquivo de resultados output.txt na pasta *experiment*;
+2. **script-config.sh**: Após a compilação, configura o ambiente para executar o experimento. Configuração é realizada na pasta *experiment*;
+3. **script-exec.sh**: Executa o experimento gerando o arquivo de resultados output.txt na pasta *experiment*;
 
 ### Resultados
 
