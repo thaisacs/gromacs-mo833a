@@ -11,6 +11,7 @@ namespace gmx {
     void init_timestep();
     void begin_timestep();
     void end_timestep();
+    int get_iteration();
   };
 }
 

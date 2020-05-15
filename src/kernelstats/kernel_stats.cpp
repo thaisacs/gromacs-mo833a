@@ -28,3 +28,7 @@ void KernelStats::begin_timestep() {
   iteration++;
   begin_time = get_time();
 }
+
+int KernelStats::get_iteration() {
+  return iteration;
+}

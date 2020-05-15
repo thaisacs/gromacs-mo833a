@@ -2563,6 +2563,9 @@ void LegacySimulator::do_steep()
         count++;
 
         KS.end_timestep();
+        if(KS.get_iteration() == 10) {
+          bDone  = TRUE;
+        }
     } /* End of the loop  */
 
     /* Print some data...  */
