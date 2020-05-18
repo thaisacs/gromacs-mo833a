@@ -124,6 +124,8 @@ Além disso, as *actions* do *group* GROMACS foram definidas em *groups/gromacs*
 
 ##### Cluster 2x
 
+Os resultados podem ser encontrados em *results/cluster2/*. O resumo dos resultados é apresentado na tabela a seguir.
+
 | Iteração | Média do Tempo |
 |:--------:|:--------------:|
 |     1    |     0.0969     |
@@ -140,6 +142,8 @@ Além disso, as *actions* do *group* GROMACS foram definidas em *groups/gromacs*
 
 ##### Cluster 4x
 
+Os resultados podem ser encontrados em *results/cluster4/*. O resumo dos resultados é apresentado na tabela a seguir.
+
 | Iteração | Média do Tempo |
 |:--------:|:--------------:|
 |     1    |     0.1004     |
@@ -155,6 +159,8 @@ Além disso, as *actions* do *group* GROMACS foram definidas em *groups/gromacs*
 |   Média  |     0.1039     |
 
 ##### Cluster 8x
+
+Os resultados podem ser encontrados em *results/cluster8/*. O resumo dos resultados é apresentado na tabela a seguir.
 
 | Iteração | Média do Tempo |
 |:--------:|:--------------:|
