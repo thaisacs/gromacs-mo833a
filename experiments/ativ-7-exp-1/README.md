@@ -115,3 +115,6 @@ Note que a *action config-host* é executada no *after_all*. Ao mesmo tempo, os 
 
 ### Resultados
 
+<p align="center">
+  <img width="640" height="480" src="https://raw.githubusercontent.com/thaisacs/gromacs-mo833a/ativ-7-exp-1/experiments/ativ-7-exp-1/results/result.png">
+</p>
