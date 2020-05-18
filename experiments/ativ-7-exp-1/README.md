@@ -13,7 +13,7 @@ A seguir é detalhado cada atividade e os resultados encontrados.
 #### 1. **KernelStats**
 
 
-Como para instrumentar a aplicação foi criada a classe **KernelStats** na atividade 6. Foi necessário que essa classe permitisse acessar o atributo *iterations*. Para isso, foi necessário adicionar o *get* desse atributo. A seguir é apresentado o *usr/kernelstats.h* com a alteração feita.
+Como para instrumentar a aplicação foi criada a classe **KernelStats** na atividade 6. Foi necessário que essa classe permitisse acessar o atributo *iterations*. Para isso, foi necessário adicionar o *get* desse atributo. A seguir é apresentado o `usr/kernelstats/kernel_stats.h` com a alteração feita.
 
 ```
 #include <sys/time.h>
@@ -36,7 +36,7 @@ namespace gmx {
 gmx::KernelStats KS;
 ```
 
-A implementação do *get_iteration* feita no *usr/kernelstat.cpp* é apresentada a seguir.
+A implementação do *get_iteration* feita no `usr/kernelstats/kernel_stats.cpp` é apresentada a seguir.
 
 ```
 int KernelStats::get_iteration() {
@@ -194,7 +194,7 @@ Os resultados podem ser encontrados em *results/cluster8/*. O resumo dos resulta
 
 ##### Inicialização
 
-Uma informação importante é o fato de quanto mais nós, maior o tempo de inicialização. Isso pode ser observado na tabela a seguir.
+Uma informação importante é o fato de que quanto maior a quantidade de nós, maior o tempo de inicialização. Isso pode ser observado na tabela a seguir.
 
 | Cluster | Média do Tempo |
 |:-------:|:--------------:|
