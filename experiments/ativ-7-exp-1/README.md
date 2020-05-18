@@ -116,7 +116,7 @@ Note que a *action config-host* é executada no *after_all*.
 Ao mesmo tempo, os nós *slaves* e *master* além de executarem a *setup* no início, também executam o *simulation-setup*.
 Além disso, as *actions* do *group* GROMACS foram definidas em `groups/gromacs`.
 
-#### 4. Scripts
+#### 4. Script CLAP
 
 Para iniciar um cluster com os templates dessa atividade basta configurar o *script-clap.sh*. Que possui o seguinte template.
 

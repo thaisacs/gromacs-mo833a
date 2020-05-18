@@ -16,20 +16,6 @@
   - name: Run ./script-conf.sh
     shell: "cd ~/gromacs-mo833a/experiments/ativ-7-exp-1 && ./script-config.sh"
 
-    - name: Create hosts file
-      file:
-        path: ~/gromacs-mo833a/experiments/ativ-7-exp-1/hostfile
-        state: touch
-
-    - name: Add Ansible inventory mappings
-      blockinfile:
-        marker: ""
-        path: ~/gromacs-mo833a/experiments/ativ-7-exp-1/hostfile
-        block: |
-          {% for host in groups['all'] %}
-          {{ hostvars[host].ansible_host }} slots=2
-          {% endfor %}
-
   - name: Copy private SSH KEY
     copy:
       src: ~/.clap/private/id_rsa
