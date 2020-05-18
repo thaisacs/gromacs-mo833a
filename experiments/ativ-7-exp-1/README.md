@@ -129,7 +129,7 @@ clapp cluster action <cluster-id>  gromacs fetch-result --nodes <master-id>
 
 onde, [2-4-8] deve ser substituído apenas para um dos três valores; NUMBER é o parâmetro **np** do MPI; cluster-id e master-id são o id
 do cluster e do nó master, respectivamente. A *action fetch-result* transfere para `~/.clap/fetch-out` e `*~/.clap/fetch-err` os arquivos de
-saída da execução, salvos em *experiments/ativ-7-exp-1/experiment*.
+saída da execução, salvos em `experiments/ativ-7-exp-1/experiment`.
 
 ### Resultados
 
