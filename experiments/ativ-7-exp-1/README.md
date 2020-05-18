@@ -47,7 +47,7 @@ int KernelStats::get_iteration() {
 #### 2. Instrumentação
 
 Para evitar que a simulação seja executada até o final e fazer com que o GROMACS pare após executar 10 iterações, foi adicionado no final da *paramount iteration*
-(loop dentro da `LegacySimulator::do_steep()`` no arquivo `src/gromacs/mdrun/minimize.cpp`) o seguinte código.
+(loop dentro da `LegacySimulator::do_steep()` no arquivo `src/gromacs/mdrun/minimize.cpp`) o seguinte código.
 
 ```
 if(KS.get_iteration() == 10) {
