@@ -46,7 +46,8 @@ int KernelStats::get_iteration() {
 
 #### 2. Instrumentação
 
-Para evitar que a simulação seja executada até o final e fazer com que o GROMACS pare após executar 10 iterações, foi adicionado no final da *paramount iteration* (loop dentro da *LegacySimulator::do_steep()* no arquivo src/gromacs/mdrun/minimize.cpp) o seguinte código.
+Para evitar que a simulação seja executada até o final e fazer com que o GROMACS pare após executar 10 iterações, foi adicionado no final da *paramount iteration*
+(loop dentro da `LegacySimulator::do_steep()`` no arquivo `src/gromacs/mdrun/minimize.cpp`) o seguinte código.
 
 ```
 if(KS.get_iteration() == 10) {
@@ -58,10 +59,11 @@ if(KS.get_iteration() == 10) {
 
 O grupo GROMACS foi criado com as seguintes *actions*: *setup*, *simulation-setup*, *run* e *fetch-result*. Onde,
 
-1. setup: configura a máquina virtual com todas as bibliotecas necessárias e instala o GROMACS;
+1. *setup*: configura a máquina virtual com todas as bibliotecas necessárias e instala o GROMACS;
 2. *simulation-setup*: gera os arquivos necessários para a simulação;
-3. *run*: executa o GROMACS e redireciona a saída padrão do comando para o arquivo chamado *experiment/gmx.out*. Também redireciona a saída de erro para um arquivo chamado *experiment/gmx.err*. Além disso, essa *action* precisa da variável *amount*;
-4. fetch-result: faz o download do resultado da simulação e dos tempos de execução das paramount iterations (dos arquivos gmx.out e gmx.err) para dentro do *~/.clap/fetch_out* e *~/.clap/fetch_err*;
+3. *run*: executa o GROMACS e redireciona a saída padrão do comando para o arquivo chamado `experiment/gmx.out`. Também redireciona a saída de erro para um arquivo chamado *experiment/gmx.err*. Além disso, essa *action* precisa da variável *amount*;
+4. *fetch-result*: faz o download do resultado da simulação e dos tempos de execução das paramount iterations (dos arquivos gmx.out e gmx.err) 
+para dentro do `~/.clap/fetch_out` e `~/.clap/fetch_err`;
 
 Além dessas *actions*, também implementei a *config-host* que após a inicialização do *cluster*, gera o arquivo *hostfile* com o *private ip* de todos os *hosts* em todos os nós. 
 
@@ -112,7 +114,7 @@ clusters:
 
 Note que a *action config-host* é executada no *after_all*.
 Ao mesmo tempo, os nós *slaves* e *master* além de executarem a *setup* no início, também executam o *simulation-setup*.
-Além disso, as *actions* do *group* GROMACS foram definidas em *groups/gromacs*.
+Além disso, as *actions* do *group* GROMACS foram definidas em `groups/gromacs`.
 
 #### 4. Scripts
 
@@ -126,7 +128,7 @@ clapp cluster action <cluster-id>  gromacs fetch-result --nodes <master-id>
  ```
 
 onde, [2-4-8] deve ser substituído apenas para um dos três valores; NUMBER é o parâmetro **np** do MPI; cluster-id e master-id são o id
-do cluster e do nó master, respectivamente. A *action fetch-result* transfere para *~/.clap/fetch-out* e *~/.clap/fetch-err* os arquivos de
+do cluster e do nó master, respectivamente. A *action fetch-result* transfere para `~/.clap/fetch-out` e `*~/.clap/fetch-err` os arquivos de
 saída da execução, salvos em *experiments/ativ-7-exp-1/experiment*.
 
 ### Resultados
