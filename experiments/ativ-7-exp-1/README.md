@@ -116,6 +116,17 @@ Além disso, as *actions* do *group* GROMACS foram definidas em *groups/gromacs*
 
 #### 4. Scripts
 
+Para iniciar um cluster com os templates dessa atividade basta executar um dos três comandos a seguir.
+
+```
+clapp cluster start cluster-t2.micro-2x
+clapp cluster start cluster-t2.micro-4x
+clapp cluster start cluster-t2.micro-8x
+```
+
+Para executar esse comandos, além dos arquivos do CLAP em *privates*, é necessário ter *id_rsa* e *id_rsa.pub*.
+Após esse comando, para executar o GROMACS basta executar o seguinte comando.
+
 ### Resultados
 
 <p align="center">
