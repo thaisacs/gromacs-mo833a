@@ -116,18 +116,23 @@ Além disso, as *actions* do *group* GROMACS foram definidas em *groups/gromacs*
 
 #### 4. Scripts
 
-Para iniciar um cluster com os templates dessa atividade basta executar um dos três comandos a seguir.
+Para iniciar um cluster com os templates dessa atividade basta configurar o *script-clap.sh*. Que possui o seguinte template.
 
-```
-clapp cluster start cluster-t2.micro-2x
-clapp cluster start cluster-t2.micro-4x
-clapp cluster start cluster-t2.micro-8x
-```
+ ```
+ssh-keygen -f ~/.clap/private
+clapp cluster start cluster-t2.micro-[2-4-8]x
+clapp cluster action <cluster-id> gromacs run --extra="amount=NUMBER" --nodes <master-id>
+clapp cluster action <cluster-id>  gromacs fetch-result --nodes <master-id>
+ ```
 
-Para executar esse comandos, além dos arquivos do CLAP em *privates*, é necessário ter *id_rsa* e *id_rsa.pub*.
-Após esse comando, para executar o GROMACS basta executar o seguinte comando.
+onde, [2-4-8] deve ser substituído apenas para um dos três valores; NUMBER é o parâmetro **np** do MPI; cluster-id e master-id são o id
+do cluster e do nó master, respectivamente. A *action fetch-result* transfere para *~/.clap/fetch-out* e *~/.clap/fetch-err* os arquivos de
+saída da execução, salvos em *experiments/ativ-7-exp-1/experiment*.
 
 ### Resultados
+
+Como cada nó possui `slots=2`, para os *clusters* 2, 4 e 8 foram utilizados **np** com 4, 8 e 16, respectivamente. A seguir é apresentado
+o gráfico com os resultados coletados para os três *clusters*.
 
 <p align="center">
   <img width="640" height="480" src="https://raw.githubusercontent.com/thaisacs/gromacs-mo833a/ativ-7-exp-1/experiments/ativ-7-exp-1/results/result.png">
@@ -189,7 +194,7 @@ Os resultados podem ser encontrados em *results/cluster8/*. O resumo dos resulta
 
 ##### Inicialização
 
-Uma informação importante é o fato de quanto mais nós, maior o tempo de inicialização. Isso pode ser observado na tabela a seguir,
+Uma informação importante é o fato de quanto mais nós, maior o tempo de inicialização. Isso pode ser observado na tabela a seguir.
 
 | Cluster | Média do Tempo |
 |:-------:|:--------------:|
