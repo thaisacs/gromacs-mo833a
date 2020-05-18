@@ -109,7 +109,10 @@ clusters:
     - config-my-after-all
 ```
 
-Note que a *action config-host* é executada no *after_all*. Ao mesmo tempo, os nós *slaves* e *master* além de executarem a *setup* no início, também executam o *simulation-setup*.
+
+Note que a *action config-host* é executada no *after_all*.
+Ao mesmo tempo, os nós *slaves* e *master* além de executarem a *setup* no início, também executam o *simulation-setup*.
+Além disso, as *actions* do *group* GROMACS foram definidas em *groups/gromacs*.
 
 #### 4. Scripts
 
@@ -118,3 +121,35 @@ Note que a *action config-host* é executada no *after_all*. Ao mesmo tempo, os 
 <p align="center">
   <img width="640" height="480" src="https://raw.githubusercontent.com/thaisacs/gromacs-mo833a/ativ-7-exp-1/experiments/ativ-7-exp-1/results/result.png">
 </p>
+
+##### Cluster 2x
+
++----------+----------------+
+| Iteração | Média do Tempo |
++----------+----------------+
+|     1    |     0.0969     |
++----------+----------------+
+|     2    |     0.1008     |
++----------+----------------+
+|     3    |     0.1025     |
++----------+----------------+
+|     4    |     0.1067     |
++----------+----------------+
+|     5    |     0.1107     |
++----------+----------------+
+|     6    |     0.1107     |
++----------+----------------+
+|     7    |     0.1118     |
++----------+----------------+
+|     8    |     0.1119     |
++----------+----------------+
+|     9    |     0.1119     |
++----------+----------------+
+|    10    |     0.1151     |
++----------+----------------+
+|   Média  |     0.1079     |
++----------+----------------+
+
+##### Cluster 4x
+
+##### Cluster 8x

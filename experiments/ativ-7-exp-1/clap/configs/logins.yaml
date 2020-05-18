@@ -1,0 +1,10 @@
+login-ubuntu:
+    user: ubuntu
+    keypair_name: t264961
+    keypair_public_file: t264961.pub
+    keypair_private_file: t264961.pem
+    sudo: true
+    sudo_user: root
+
+login-ubuntu-b:
+    user: ubuntu

@@ -1,0 +1,15 @@
+clusters:
+  cluster-t2.micro-8x:
+    nodes:
+      slave:
+        type: type-a
+        count: 7
+        setups:
+        - config-my-slave
+      master:
+        type: type-a
+        count: 1
+        setups:
+        - config-my-slave
+    after_all:
+    - config-my-after-all

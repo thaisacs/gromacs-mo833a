@@ -1,0 +1,51 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+  - name: Perform simulation setup
+    debug:
+      msg: simulation-setup action called!
+
+  - name: Create experiment directory
+    become: no
+    file:
+      path: "~/gromacs-mo833a/experiments/ativ-7-exp-1/experiment"
+      state: directory
+      mode: 0755
+
+  - name: Run ./script-conf.sh
+    shell: "cd ~/gromacs-mo833a/experiments/ativ-7-exp-1 && ./script-config.sh"
+
+    - name: Create hosts file
+      file:
+        path: ~/gromacs-mo833a/experiments/ativ-7-exp-1/hostfile
+        state: touch
+
+    - name: Add Ansible inventory mappings
+      blockinfile:
+        marker: ""
+        path: ~/gromacs-mo833a/experiments/ativ-7-exp-1/hostfile
+        block: |
+          {% for host in groups['all'] %}
+          {{ hostvars[host].ansible_host }} slots=2
+          {% endfor %}
+
+  - name: Copy private SSH KEY
+    copy:
+      src: ~/.clap/private/id_rsa
+      dest: ~/.ssh
+
+  - name: Copy public SSH KEY
+    copy:
+      src: ~/.clap/private/id_rsa.pub
+      dest: ~/.ssh
+
+  - name: Add rsa-key in authorized_keys
+    shell: "cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys"
+
+  - name: Execute chmod 600
+    become: true
+    shell: "chmod 600 /home/ubuntu/.ssh/id_rsa && chmod 600 /home/ubuntu/.ssh/id_rsa.pub"
+
+  - name: StrictHostKeyChecking not necessary
+    shell: "touch ~/.ssh/config && echo 'Host * \n    StrictHostKeyChecking no' >> ~/.ssh/config"

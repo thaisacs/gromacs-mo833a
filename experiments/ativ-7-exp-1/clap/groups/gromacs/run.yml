@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+  - name: Perform execution
+    debug:
+      msg: run action called!
+
+  - name: Run
+    shell: "cd ~/gromacs-mo833a/experiments/ativ-7-exp-1/experiment &&
+    mpirun -np {{ amount }} --hostfile ../hostfile ../../../build/bin/gmx_mpi mdrun -v -deffnm em 1> gmx.out 2> gmx.err"

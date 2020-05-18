@@ -1,0 +1,31 @@
+setups:
+  config-my-node:
+    groups:
+    - name: gromacs
+
+    actions:
+    - type: action
+      name: simulation-setup
+      group: gromacs
+
+  config-my-after-all:
+    actions:
+    - type: action
+      name: config-host
+      group: gromacs
+
+clusters:
+  cluster-t2.micro-2x:
+    nodes:
+      slave:
+        type: type-a
+        count: 1
+        setups:
+        - config-my-node
+      master:
+        type: type-a
+        count: 1
+        setups:
+        - config-my-node
+    after_all:
+    - config-my-after-all

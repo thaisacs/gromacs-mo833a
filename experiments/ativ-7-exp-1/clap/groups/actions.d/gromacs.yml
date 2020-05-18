@@ -1,0 +1,23 @@
+---
+actions:
+  setup:
+    playbook: gromacs/setup.yml
+    descripton: Configure VM
+
+  simulation-setup:
+    playbook: gromacs/simulation-setup.yml
+    descripton: Generate config files
+
+  run:
+    playbook: gromacs/run.yml
+    descripton: Run gromacs
+    vars:
+    - name: amount
+
+  fetch-result:
+    playbook: gromacs/fetch-result.yml
+    descripton: Get results
+
+  config-host:
+    playbook: gromacs/config-host.yml
+    descripton: Configure hostfile

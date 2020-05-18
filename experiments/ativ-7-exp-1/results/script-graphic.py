@@ -40,6 +40,10 @@ def get_axisx():
 cluster2 = get_mean(read_output("cluster2.cvs"), 2)
 cluster4 = get_mean(read_output("cluster4.cvs"), 4)
 cluster8 = get_mean(read_output("cluster8.cvs"), 8)
+
+print(cluster2)
+print(sum(cluster2)/10)
+
 x = get_axisx()
 
 matplotlib.pyplot.plot(x, cluster2, label="x2")

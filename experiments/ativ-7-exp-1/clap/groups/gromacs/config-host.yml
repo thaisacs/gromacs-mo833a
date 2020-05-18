@@ -1,0 +1,21 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+  - name: Perform config-host
+    debug:
+      msg: config-host action called!
+
+  - name: Create hosts file
+    file:
+      path: ~/gromacs-mo833a/experiments/ativ-7-exp-1/hostfile
+      state: touch
+
+  - name: Add Ansible inventory mappings
+    blockinfile:
+      marker: ""
+      path: ~/gromacs-mo833a/experiments/ativ-7-exp-1/hostfile
+      block: |
+        {% for host in groups['all'] %}
+        {{ hostvars[host].ansible_default_ipv4.address }} slots=2
+        {% endfor %}

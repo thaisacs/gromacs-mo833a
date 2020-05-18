@@ -1,0 +1,44 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+  - name: Perform setup
+    debug:
+      msg: setup action called!
+
+  - name: "Ensure that packages are updated"
+    become: yes
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: Install module dependencies
+    become: yes
+    apt:
+      pkg:
+        - git
+        - build-essential
+        - make
+        - gcc
+        - openmpi-bin
+        - libhdf5-openmpi-dev
+        - libopenmpi-dev
+        - cmake
+
+  - name: Get repository
+    become: no
+    shell: "git clone https://github.com/thaisacs/gromacs-mo833a"
+
+  - name: Change branch
+    become: no
+    shell: "cd gromacs-mo833a && git checkout ativ-7-exp-1"
+
+  - name: Create build directory
+    become: no
+    file:
+      path: "~/gromacs-mo833a/build"
+      state: directory
+      mode: 0755
+
+  - name: Run ./script-build.sh
+    shell: "cd ~/gromacs-mo833a/experiments/ativ-7-exp-1/ && ./script-build.sh"

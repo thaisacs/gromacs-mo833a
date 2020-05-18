@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+  - name: Perform fetch results
+    debug:
+      msg: fetch action called!
+
+  - name: Fetch gmx.out
+    fetch:
+      src: ~/gromacs-mo833a/experiments/ativ-7-exp-1/experiment/gmx.out
+      dest: ~/.clap/fetch-out
+
+  - name: Fetch gmx.err
+    fetch:
+      src: ~/gromacs-mo833a/experiments/ativ-7-exp-1/experiment/gmx.err
+      dest: ~/.clap/fetch-err
