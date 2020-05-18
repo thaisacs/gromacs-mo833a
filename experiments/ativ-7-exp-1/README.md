@@ -186,3 +186,13 @@ Os resultados podem ser encontrados em *results/cluster8/*. O resumo dos resulta
 |     9    |     0.0805     |
 |    10    |     0.0816     |
 |   Média  |     0.0782     |
+
+##### Inicialização
+
+Uma informação importante é o fato de quanto mais nós, maior o tempo de inicialização. Isso pode ser observado na tabela a seguir,
+
+| Cluster | Média do Tempo |
+|:-------:|:--------------:|
+|    2x   |    0.6975395   |
+|    4x   |    1.314955    |
+|    8x   |    1.654835    |
