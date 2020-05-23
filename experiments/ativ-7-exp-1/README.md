@@ -140,6 +140,8 @@ o gráfico com os resultados coletados para os três *clusters*.
   <img width="640" height="480" src="https://raw.githubusercontent.com/thaisacs/gromacs-mo833a/ativ-7-exp-1/experiments/ativ-7-exp-1/results/result.png">
 </p>
 
+Os resultados podem ser conferidos na panilha: https://docs.google.com/spreadsheets/d/1HPmszFxJVQt8OPdZFXliWsEdAVEbMoq6rBucTquQQUc/edit?usp=sharing.
+
 ##### Cluster 2x
 
 Os resultados podem ser encontrados em *results/cluster2/*. O resumo dos resultados é apresentado na tabela a seguir.

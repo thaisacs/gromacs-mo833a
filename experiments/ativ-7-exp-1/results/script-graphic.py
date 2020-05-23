@@ -37,9 +37,9 @@ def get_axisx():
 
     return x
 
-cluster2 = get_mean(read_output("cluster2.cvs"), 2)
-cluster4 = get_mean(read_output("cluster4.cvs"), 4)
-cluster8 = get_mean(read_output("cluster8.cvs"), 8)
+cluster2 = get_mean(read_output("cluster2.csv"), 2)
+cluster4 = get_mean(read_output("cluster4.csv"), 4)
+cluster8 = get_mean(read_output("cluster8.csv"), 8)
 
 print(cluster8)
 print(sum(cluster8)/10)
