@@ -21,3 +21,6 @@ actions:
   config-host:
     playbook: gromacs/config-host.yml
     descripton: Configure hostfile
+hosts:
+  - master
+  - slave

@@ -1,4 +1,7 @@
-       :-) GROMACS - gmx mdrun, 2020.2-dev-20200516-7fb701973-unknown (-:
+Warning: Permanently added '172.31.70.80' (ECDSA) to the list of known hosts.
+Warning: Permanently added '172.31.75.110' (ECDSA) to the list of known hosts.
+Warning: Permanently added '172.31.64.145' (ECDSA) to the list of known hosts.
+       :-) GROMACS - gmx mdrun, 2020.2-dev-20200524-046766c95-unknown (-:
 
                             GROMACS is written by:
      Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
@@ -26,53 +29,40 @@ under the terms of the GNU Lesser General Public License
 as published by the Free Software Foundation; either version 2.1
 of the License, or (at your option) any later version.
 
-GROMACS:      gmx mdrun, version 2020.2-dev-20200516-7fb701973-unknown
+GROMACS:      gmx mdrun, version 2020.2-dev-20200524-046766c95-unknown
 Executable:   /home/ubuntu/gromacs-mo833a/experiments/ativ-7-exp-1/experiment/../../../build/bin/gmx_mpi
 Data prefix:  /home/ubuntu/gromacs-mo833a (source tree)
 Working dir:  /home/ubuntu/gromacs-mo833a/experiments/ativ-7-exp-1/experiment
 Command line:
   gmx_mpi mdrun -v -deffnm em
 
-
-Back Off! I just backed up em.log to ./#em.log.4#
-Reading file em.tpr, VERSION 2020.2-dev-20200516-7fb701973-unknown (single precision)
-Using 16 MPI processes
+Reading file em.tpr, VERSION 2020.2-dev-20200524-046766c95-unknown (single precision)
+Using 4 MPI processes
 Using 1 OpenMP thread per MPI process
 
-
-WARNING: On rank 0: oversubscribing the available 1 logical CPU cores per node with 2 MPI processes.
-         This will cause considerable performance loss.
-
-NOTE: Oversubscribing the CPU, will not pin threads
-
-Back Off! I just backed up em.trr to ./#em.trr.4#
-
-Back Off! I just backed up em.edr to ./#em.edr.4#
 
 Steepest Descents:
    Tolerance (Fmax)   =  1.00000e+03
    Number of steps    =        50000
-Step=    0, Dmax= 1.0e-02 nm, Epot= -3.96958e+05 Fmax= 2.20591e+05, atom= 28034
-Step=    1, Dmax= 1.0e-02 nm, Epot= -4.71847e+05 Fmax= 8.29062e+04, atom= 2201
-Step=    2, Dmax= 1.2e-02 nm, Epot= -5.57990e+05 Fmax= 3.06086e+04, atom= 31238
-Step=    3, Dmax= 1.4e-02 nm, Epot= -6.29648e+05 Fmax= 1.12282e+04, atom= 31238
-Step=    4, Dmax= 1.7e-02 nm, Epot= -6.81283e+05 Fmax= 6.80736e+03, atom= 2151
-Step=    5, Dmax= 2.1e-02 nm, Epot= -7.12495e+05 Fmax= 9.98164e+03, atom= 2147
-Step=    6, Dmax= 2.5e-02 nm, Epot= -7.25578e+05 Fmax= 2.95799e+04, atom= 2147
-Step=    7, Dmax= 3.0e-02 nm, Epot= -7.32882e+05 Fmax= 1.62929e+04, atom= 2147
-Step=    8, Dmax= 3.6e-02 nm, Epot= -7.40708e+05 Fmax= 3.95796e+04, atom= 2147
-Step=    9, Dmax= 4.3e-02 nm, Epot= -7.46680e+05 Fmax= 2.58371e+04, atom= 2147
+Step=    0, Dmax= 1.0e-02 nm, Epot= -3.96869e+05 Fmax= 2.20591e+05, atom= 28037
+Step=    1, Dmax= 1.0e-02 nm, Epot= -4.71652e+05 Fmax= 8.29062e+04, atom= 2201
+Step=    2, Dmax= 1.2e-02 nm, Epot= -5.57604e+05 Fmax= 3.06086e+04, atom= 31241
+Step=    3, Dmax= 1.4e-02 nm, Epot= -6.29115e+05 Fmax= 1.12282e+04, atom= 31241
+Step=    4, Dmax= 1.7e-02 nm, Epot= -6.80772e+05 Fmax= 6.80670e+03, atom= 2151
+Step=    5, Dmax= 2.1e-02 nm, Epot= -7.12107e+05 Fmax= 9.98175e+03, atom= 2147
+Step=    6, Dmax= 2.5e-02 nm, Epot= -7.25267e+05 Fmax= 2.95788e+04, atom= 2147
+Step=    7, Dmax= 3.0e-02 nm, Epot= -7.32606e+05 Fmax= 1.62720e+04, atom= 2147
+Step=    8, Dmax= 3.6e-02 nm, Epot= -7.40486e+05 Fmax= 3.96007e+04, atom= 2147
+Step=    9, Dmax= 4.3e-02 nm, Epot= -7.46481e+05 Fmax= 2.58192e+04, atom= 2147
 
 writing lowest energy coordinates.
 
-Back Off! I just backed up em.gro to ./#em.gro.4#
-
 Steepest Descents converged to Fmax < 1000 in 10 steps
-Potential Energy  = -7.4668006e+05
-Maximum force     =  2.5837053e+04 on atom 2147
-Norm of force     =  3.6866210e+02
+Potential Energy  = -7.4648100e+05
+Maximum force     =  2.5819240e+04 on atom 2147
+Norm of force     =  3.6909925e+02
 
-GROMACS reminds you: "Here's Another Useful Quote" (S. Boot)
+GROMACS reminds you: "What If None Of Your Dreams Come True ?" (E. Costello)
 
-[ip-172-31-85-208:00545] 15 more processes have sent help message help-mpi-btl-base.txt / btl:no-nics
-[ip-172-31-85-208:00545] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[ip-172-31-76-251:01156] 3 more processes have sent help message help-mpi-btl-base.txt / btl:no-nics
+[ip-172-31-76-251:01156] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
