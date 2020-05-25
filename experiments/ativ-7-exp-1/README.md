@@ -110,7 +110,7 @@ clusters:
     - config-my-after-all
 ```
 
-#### 4. Reprodutibilidade
+### Reprodutibilidade
 
 Para reproduzir este experimento, basta executar os seguintes comandos:
 
