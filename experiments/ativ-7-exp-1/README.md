@@ -174,7 +174,7 @@ Os resultados podem ser encontrados em *results/cluster2/*. O resumo dos resulta
 
 Os resultados podem ser encontrados em *results/cluster4/*. O resumo dos resultados é apresentado na tabela a seguir.
 
-| Iteração | Média do Tempo |
+| Iteração | Tempo PI |
 |:--------:|:--------------:|
 |     1    |     0.037277   |
 |     2    |     0.033906   |
@@ -192,7 +192,7 @@ Os resultados podem ser encontrados em *results/cluster4/*. O resumo dos resulta
 
 Os resultados podem ser encontrados em *results/cluster8/*. O resumo dos resultados é apresentado na tabela a seguir.
 
-| Iteração | Média do Tempo |
+| Iteração | Tempo PI |
 |:--------:|:--------------:|
 |     1    |     0.021596   |
 |     2    |     0.0200899  |
