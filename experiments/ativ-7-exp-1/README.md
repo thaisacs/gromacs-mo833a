@@ -110,19 +110,36 @@ clusters:
     - config-my-after-all
 ```
 
-#### 4. CLAP
+#### 4. Reprodutibilidade
 
-Para iniciar um cluster com os templates dessa atividade basta configurar o *script-clap.sh*. Que possui o seguinte template.
+Para reproduzir este experimento, basta executar os seguintes comandos:
 
  ```
 ssh-keygen -f ~/.clap/private/id_rsa
-clapp cluster start cluster-t2.micro-[2-4-8]x
-clapp cluster action <cluster-id> gromacs run --extra="amount=NUMBER"
+
+clapp cluster start cluster-t2.micro-2x
+clapp cluster action <cluster-id> gromacs run --extra="amount=2"
 clapp cluster action <cluster-id>  gromacs fetch-result
+mkdir cluster2
+mv fetch-* cluster2
+clapp cluster stop <cluster-id>
+
+clapp cluster start cluster-t2.micro-4x
+clapp cluster action <cluster-id> gromacs run --extra="amount=4"
+clapp cluster action <cluster-id>  gromacs fetch-result
+mkdir cluster4
+mv fetch-* cluster4
+clapp cluster stop <cluster-id>
+
+clapp cluster start cluster-t2.micro-8x
+clapp cluster action <cluster-id> gromacs run --extra="amount=8"
+clapp cluster action <cluster-id>  gromacs fetch-result
+mkdir cluster8
+mv fetch-* cluster8
+clapp cluster stop <cluster-id>
  ```
 
-onde, [2-4-8] deve ser substituído apenas para um dos três valores; NUMBER é o parâmetro **np** do MPI; cluster-id é o id
-do cluster, respectivamente. A *action fetch-result* transfere para `~/.clap/fetch-out` e `*~/.clap/fetch-err` os arquivos de saída da execução, salvos em `experiments/ativ-7-exp-1/experiment`.
+A *action fetch-result* transfere para `~/.clap/fetch-out` e `*~/.clap/fetch-err` os arquivos de saída da execução, salvos em `experiments/ativ-7-exp-1/experiment`.
 
 ### Resultados
 
@@ -151,7 +168,7 @@ Os resultados podem ser encontrados em *results/cluster2/*. O resumo dos resulta
 |     8    |     0.0625131  |
 |     9    |     0.0628109  |
 |    10    |     0.0626581  |
-|   Média  |     -     |
+|   Média  |     0.067678   |
 
 ##### Cluster 4x
 
@@ -169,7 +186,7 @@ Os resultados podem ser encontrados em *results/cluster4/*. O resumo dos resulta
 |     8    |     0.0339069  |
 |     9    |     0.0339868  |
 |    10    |     0.0337179  |
-|   Média  |     -     |
+|   Média  |     0.03549745 |
 
 ##### Cluster 8x
 
@@ -187,4 +204,4 @@ Os resultados podem ser encontrados em *results/cluster8/*. O resumo dos resulta
 |     8    |     0.021605   |
 |     9    |     0.0216119  |
 |    10    |     0.0198371  |
-|   Média  |     -     |
+|   Média  |     0.02071655 |
