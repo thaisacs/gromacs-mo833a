@@ -60,12 +60,12 @@ if(KS.get_iteration() == 10) {
 O grupo GROMACS foi criado com as seguintes *actions*: *setup*, *simulation-setup*, *run* e *fetch-result*. Onde,
 
 1. *setup*: configura a máquina virtual com todas as bibliotecas necessárias e instala o GROMACS;
-2. *simulation-setup*: gera os arquivos necessários para a simulação;
+2. *simulation-setup*: gera os arquivos necessários para a simulação (incluindo o *hostfile*);
 3. *run*: executa o GROMACS e redireciona a saída padrão do comando para o arquivo chamado `experiment/gmx.out`. Também redireciona a saída de erro para um arquivo chamado *experiment/gmx.err*. Além disso, essa *action* precisa da variável *amount*;
 4. *fetch-result*: faz o download do resultado da simulação e dos tempos de execução das paramount iterations (dos arquivos gmx.out e gmx.err) 
 para dentro do `~/.clap/fetch_out` e `~/.clap/fetch_err`;
 
-Além dessas *actions*, também implementei a *config-host* que após a inicialização do *cluster*, gera o arquivo *hostfile* com o *private ip* de todos os *hosts* em todos os nós. 
+As *actions* podem ser conferidas no diretório `groups/gromacs/` e no arquivo `groups/actions.d/gromacs.ymml`.
 
 #### 4. Clusters
 
@@ -75,23 +75,22 @@ Foi criado três arquivos de configuração de cluster:
 2. **cluster-t2.micro-4x:** É um cluster com quatro máquinas *t2.micro*.
 3. **cluster-t2.micro-8x:** É um cluster com oito máquinas *t2.micro*.
 
-O *cluster-t2.micro-2x.yml* foi responsável por definir os *setups* desses três *cluster*. Esse arquivo é apresentado a seguir.
+O *cluster-t2.micro-2x.yml* foi responsável por definir os *setups* desses três *clusters*. Esse arquivo é apresentado a seguir.
 
 ```
 setups:
-  config-my-node:
+  config-my-slave:
     groups:
-    - name: gromacs
+    - name: gromacs/slave
 
-    actions:
-    - type: action
-      name: simulation-setup
-      group: gromacs
+  config-my-master:
+    groups:
+    - name: gromacs/master
 
   config-my-after-all:
     actions:
     - type: action
-      name: config-host
+      name: simulation-setup
       group: gromacs
 
 clusters:
@@ -101,39 +100,33 @@ clusters:
         type: type-a
         count: 1
         setups:
-        - config-my-node
+        - config-my-slave
       master:
         type: type-a
         count: 1
         setups:
-        - config-my-node
+        - config-my-master
     after_all:
     - config-my-after-all
 ```
 
-
-Note que a *action config-host* é executada no *after_all*.
-Ao mesmo tempo, os nós *slaves* e *master* além de executarem a *setup* no início, também executam o *simulation-setup*.
-Além disso, as *actions* do *group* GROMACS foram definidas em `groups/gromacs`.
-
-#### 4. Script CLAP
+#### 4. CLAP
 
 Para iniciar um cluster com os templates dessa atividade basta configurar o *script-clap.sh*. Que possui o seguinte template.
 
  ```
 ssh-keygen -f ~/.clap/private/id_rsa
 clapp cluster start cluster-t2.micro-[2-4-8]x
-clapp cluster action <cluster-id> gromacs run --extra="amount=NUMBER" --nodes <master-id>
-clapp cluster action <cluster-id>  gromacs fetch-result --nodes <master-id>
+clapp cluster action <cluster-id> gromacs run --extra="amount=NUMBER"
+clapp cluster action <cluster-id>  gromacs fetch-result
  ```
 
-onde, [2-4-8] deve ser substituído apenas para um dos três valores; NUMBER é o parâmetro **np** do MPI; cluster-id e master-id são o id
-do cluster e do nó master, respectivamente. A *action fetch-result* transfere para `~/.clap/fetch-out` e `*~/.clap/fetch-err` os arquivos de
-saída da execução, salvos em `experiments/ativ-7-exp-1/experiment`.
+onde, [2-4-8] deve ser substituído apenas para um dos três valores; NUMBER é o parâmetro **np** do MPI; cluster-id é o id
+do cluster, respectivamente. A *action fetch-result* transfere para `~/.clap/fetch-out` e `*~/.clap/fetch-err` os arquivos de saída da execução, salvos em `experiments/ativ-7-exp-1/experiment`.
 
 ### Resultados
 
-Como cada nó possui `slots=2`, para os *clusters* 2, 4 e 8 foram utilizados **np** com 4, 8 e 16, respectivamente. A seguir é apresentado
+Como cada nó possui `slots=1`, para os *clusters* 2, 4 e 8 foram utilizados **np** com 2, 4 e 8, respectivamente. A seguir é apresentado
 o gráfico com os resultados coletados para os três *clusters*.
 
 <p align="center">
@@ -146,19 +139,19 @@ Os resultados podem ser conferidos na planilha: https://docs.google.com/spreadsh
 
 Os resultados podem ser encontrados em *results/cluster2/*. O resumo dos resultados é apresentado na tabela a seguir.
 
-| Iteração | Média do Tempo |
+| Iteração | Tempo PI |
 |:--------:|:--------------:|
-|     1    |     0.0969     |
-|     2    |     0.1008     |
-|     3    |     0.1025     |
-|     4    |     0.1067     |
-|     5    |     0.1107     |
-|     6    |     0.1107     |
-|     7    |     0.1118     |
-|     8    |     0.1119     |
-|     9    |     0.1119     |
-|    10    |     0.1151     |
-|   Média  |     0.1079     |
+|     1    |     0.0726979  |
+|     2    |     0.0635591  |
+|     3    |     0.0631659  |
+|     4    |     0.061939   |
+|     5    |     0.0629649  |
+|     6    |     0.0619841  |
+|     7    |     0.062887   |
+|     8    |     0.0625131  |
+|     9    |     0.0628109  |
+|    10    |     0.0626581  |
+|   Média  |     -     |
 
 ##### Cluster 4x
 
@@ -166,17 +159,17 @@ Os resultados podem ser encontrados em *results/cluster4/*. O resumo dos resulta
 
 | Iteração | Média do Tempo |
 |:--------:|:--------------:|
-|     1    |     0.1004     |
-|     2    |     0.1017     |
-|     3    |     0.1026     |
-|     4    |     0.1033     |
-|     5    |     0.1038     |
-|     6    |     0.1049     |
-|     7    |     0.1053     |
-|     8    |     0.1059     |
-|     9    |     0.1051     |
-|    10    |     0.1061     |
-|   Média  |     0.1039     |
+|     1    |     0.037277   |
+|     2    |     0.033906   |
+|     3    |     0.0337508  |
+|     4    |     0.034075   |
+|     5    |     0.0338831  |
+|     6    |     0.0335238  |
+|     7    |     0.0335271  |
+|     8    |     0.0339069  |
+|     9    |     0.0339868  |
+|    10    |     0.0337179  |
+|   Média  |     -     |
 
 ##### Cluster 8x
 
@@ -184,24 +177,14 @@ Os resultados podem ser encontrados em *results/cluster8/*. O resumo dos resulta
 
 | Iteração | Média do Tempo |
 |:--------:|:--------------:|
-|     1    |     0.0747     |
-|     2    |     0.0755     |
-|     3    |     0.0765     |
-|     4    |     0.0774     |
-|     5    |     0.0782     |
-|     6    |     0.0787     |
-|     7    |     0.0789     |
-|     8    |     0.0797     |
-|     9    |     0.0805     |
-|    10    |     0.0816     |
-|   Média  |     0.0782     |
-
-##### Inicialização
-
-Uma informação importante é o fato de que quanto maior a quantidade de nós, maior o tempo de inicialização. Isso pode ser observado na tabela a seguir.
-
-| Cluster | Média do Tempo |
-|:-------:|:--------------:|
-|    2x   |    0.6975395   |
-|    4x   |    1.314955    |
-|    8x   |    1.654835    |
+|     1    |     0.021596   |
+|     2    |     0.0200899  |
+|     3    |     0.0198989  |
+|     4    |     0.0201089  |
+|     5    |     0.020417   |
+|     6    |     0.0200429  |
+|     7    |     0.0218711  |
+|     8    |     0.021605   |
+|     9    |     0.0216119  |
+|    10    |     0.0198371  |
+|   Média  |     -     |
